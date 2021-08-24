@@ -22,49 +22,49 @@ a_tags = soup.find_all(
 
 all_data = []
 for a_tag in a_tags:
-    data = {}
+    data = []
 
     # 詳細ページのURL取得
     href = a_tag.get("href")
     detail_link = base_url + href
     soup = get_page_text(detail_link)
 
-    data["house_name"] = soup.select_one(
-        ".section_h1-header-title").getText()
+    data.append(soup.select_one(
+        ".section_h1-header-title").getText())
 
-    data["rent"] = soup.select_one(
-        ".property_view_note-emphasis").getText()
+    data.append(soup.select_one(
+        ".property_view_note-emphasis").getText())
 
-    data["management_common_fee"] = soup.select_one(
-        ".property_view_note-info > div:nth-of-type(1) > span:nth-of-type(2)").getText()[9:]
+    data.append(soup.select_one(
+        ".property_view_note-info > div:nth-of-type(1) > span:nth-of-type(2)").getText()[9:])
 
-    data["security_deposit"] = soup.select_one(
-        ".property_view_note-info > div:nth-of-type(2) > span:nth-of-type(1)").getText()[4:]
+    data.append(soup.select_one(
+        ".property_view_note-info > div:nth-of-type(2) > span:nth-of-type(1)").getText()[4:])
 
-    data["key_money"] = soup.select_one(
-        ".property_view_note-info > div:nth-of-type(2) > span:nth-of-type(2)").getText()[4:]
+    data.append(soup.select_one(
+        ".property_view_note-info > div:nth-of-type(2) > span:nth-of-type(2)").getText()[4:])
 
-    data["deposit"] = soup.select_one(
-        ".property_view_note-info > div:nth-of-type(2) > span:nth-of-type(3)").getText()[5:]
+    data.append(soup.select_one(
+        ".property_view_note-info > div:nth-of-type(2) > span:nth-of-type(3)").getText()[5:])
 
-    data["laying_depreciation"] = soup.select_one(
-        ".property_view_note-info > div:nth-of-type(2) > span:nth-of-type(4)").getText()[7:]
+    data.append(soup.select_one(
+        ".property_view_note-info > div:nth-of-type(2) > span:nth-of-type(4)").getText()[7:])
 
     # テーブルのデータ取得
     property_view_table_tds = soup.select_one(
         ".property_view_table").find_all("td")
 
-    data["location"] = property_view_table_tds[0].getText()
-    data["from_station"] = property_view_table_tds[1].getText()
-    data["floor_plan"] = property_view_table_tds[2].getText()
-    data["occupied_area"] = property_view_table_tds[3].getText()
-    data["age"] = property_view_table_tds[4].getText()
-    data["floor"] = property_view_table_tds[5].getText()
-    data["direction"] = property_view_table_tds[6].getText()
-    data["kinds"] = property_view_table_tds[7].getText()
-    data["url"] = detail_link
+    data.append(property_view_table_tds[0].getText())
+    data.append(property_view_table_tds[1].getText())
+    data.append(property_view_table_tds[2].getText())
+    data.append(property_view_table_tds[3].getText())
+    data.append(property_view_table_tds[4].getText())
+    data.append(property_view_table_tds[5].getText())
+    data.append(property_view_table_tds[6].getText())
+    data.append(property_view_table_tds[7].getText())
+    data.append(detail_link)
     all_data.append(data)
     ''' time.sleep(3) '''
 
-print(all_data)
 # df = pd.DataFrame()
+print(all_data)
