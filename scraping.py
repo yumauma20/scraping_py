@@ -13,6 +13,7 @@ def get_page_text(url):
 
 base_url = "https://suumo.jp"
 
+# ここにデータ取得したい一覧ページのURLを貼る
 url = "https://suumo.jp/jj/chintai/ichiran/FR301FC001/?ar=030&bs=040&ta=14&sc=14131&sc=14132&sc=14133&sc=14134&sc=14135&sc=14136&sc=14137&cb=0.0&ct=9999999&et=9999999&cn=9999999&mb=0&mt=9999999&shkr1=03&shkr2=03&shkr3=03&shkr4=03&fw2=&srch_navi=1"
 soup = get_page_text(url)
 
