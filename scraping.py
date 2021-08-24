@@ -65,6 +65,7 @@ for a_tag in a_tags:
     data.append(property_view_table_tds[7].getText())
     data.append(detail_link)
     all_data.append(data)
+    time.sleep(1)
 
 df = pd.DataFrame(all_data, columns=["物件名", "家賃", "管理費・共益費", "敷金", "礼金", "保証金",
                   "敷引・償却", "所在地", "駅徒歩", "間取り", "専有面積", "築年数", "階", "向き", "建物種別", "リンク"])
