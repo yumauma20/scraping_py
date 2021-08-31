@@ -55,14 +55,9 @@ for a_tag in a_tags:
     property_view_table_tds = soup.select_one(
         ".property_view_table").find_all("td")
 
-    data.append(property_view_table_tds[0].getText())
-    data.append(property_view_table_tds[1].getText())
-    data.append(property_view_table_tds[2].getText())
-    data.append(property_view_table_tds[3].getText())
-    data.append(property_view_table_tds[4].getText())
-    data.append(property_view_table_tds[5].getText())
-    data.append(property_view_table_tds[6].getText())
-    data.append(property_view_table_tds[7].getText())
+    for i in range(len(property_view_table_tds)):
+        data.append(property_view_table_tds[i].getText())
+
     data.append(detail_link)
     all_data.append(data)
     time.sleep(1)
