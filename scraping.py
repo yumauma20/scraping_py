@@ -68,3 +68,4 @@ df = pd.DataFrame(all_data, columns=["物件名", "家賃", "管理費・共益�
 df.to_excel('data/housing_information.xlsx', index=False,)
 
 # //gittest
+# gittest
